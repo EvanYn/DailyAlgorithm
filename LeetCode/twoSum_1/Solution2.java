@@ -1,14 +1,21 @@
 package twoSum_1;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Solution1 {
+public class Solution2 {
     public static int[] twoSum(int[] nums, int target) {
-        int[] indices = new int[2];
+        Map<Integer, Integer> m = new HashMap<>();
+
         for (int i = 0; i < nums.length; i++)
-            for (int j = i+1; j < nums.length; j++)
-                if (nums[i] == target - nums[j])
-                    return new int[] {i,j};
+            m.put(nums[i], i);
+
+        for (int i = 0; i < nums.length; i++) {
+             int complement = target - nums[i];
+             if (m.containsKey(complement) && m.get(complement) != i)
+                 return new int[] {i, m.get(complement)};
+        }
 
         throw new IllegalArgumentException("No two sum solution");
     }

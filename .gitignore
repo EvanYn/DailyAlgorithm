@@ -1,2 +1,5 @@
 # Documents
 *.DS_Store
+
+# Folders
+Temp/*
