@@ -1,5 +1,9 @@
 # Documents
 *.DS_Store
+*.iml
 
 # Folders
-Temp/*
+/Temp/*
+/out/*
+/.idea/*
+
