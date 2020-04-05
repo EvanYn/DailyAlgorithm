@@ -4,20 +4,19 @@ import java.util.Arrays;
 
 public class Solution3 {
     public static int removeDuplicates(int[] nums) {
-        int j = 1;
-        int len = nums.length;
+        int i = 0;
 
-        for (int i = 1; i < len; i++) {
-            if (nums[i] != nums[i-1]) {
-                nums[j] = nums[i];
-                j++;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[j-1]) {
+                i++;
+                nums[i] = nums[j];
             }
         }
 
-        int[] newArray = Arrays.copyOfRange(nums,0, j);
+        int[] newArray = Arrays.copyOfRange(nums,0, i+1);
         System.out.println(Arrays.toString(newArray));
 
-        return j;
+        return i+1;
     }
 
     public static void main(String[] args) {
